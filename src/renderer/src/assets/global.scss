@@ -3,10 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
-html {
+body .drag {
   -webkit-app-region: drag;
+  //菜单图标与文字间距
+  --mx-menu-placeholder-width: 10px !important;
 }
 
-textarea {
-  -webkit-app-region: no-drag;
+.nodrag
+input
+select
+textarea
+option {
+    -webkit-app-region: no-drag;
 }
