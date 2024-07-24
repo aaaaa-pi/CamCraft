@@ -1,9 +1,10 @@
 <template>
   <main
     class="w-screen h-screen flex"
+    :class="{ 'rounded-full': config.round }"
     :style="`border: solid ${config.borderColor} ${config.borderWidth}`"
   >
-    <video class="object-cover h-full"></video>
+    <video class="object-cover h-full" :class="{ 'rounded-full': config.round }"></video>
   </main>
 </template>
 
