@@ -1,5 +1,8 @@
 <template>
-  <main class="w-screen h-screen flex">
+  <main
+    class="w-screen h-screen flex"
+    :style="`border: solid ${config.borderColor} ${config.borderWidth}`"
+  >
     <video class="object-cover h-full"></video>
   </main>
 </template>

@@ -11,6 +11,18 @@
       >
       </el-option>
     </el-select>
+    <el-input
+      v-model="config.borderWidth"
+      placeholder="边框宽度"
+      size="larger"
+      clearable
+    ></el-input>
+    <el-input
+      v-model="config.borderColor"
+      placeholder="边框颜色"
+      size="larger"
+      clearable
+    ></el-input>
   </main>
 </template>
 
