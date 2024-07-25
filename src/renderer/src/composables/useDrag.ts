@@ -13,6 +13,12 @@ class Drag {
     this.pageY = e.pageY
     const mouseMoveCallback = this.mouseEvent.bind(this)
     this.body?.addEventListener('mousemove', mouseMoveCallback)
+    this.body?.addEventListener('mouseup', () => {
+      this.body?.removeEventListener('mousemove', mouseMoveCallback)
+    })
+    this.body?.addEventListener('mouseout', () => {
+      this.body?.removeEventListener('mousemove', mouseMoveCallback)
+    })
   }
   private mouseEvent(e: MouseEvent) {
     const x = e.pageX - this.pageX
