@@ -37,7 +37,11 @@ import { Setting as SettingIcon, CameraFive, InnerShadowTopLeft } from '@icon-pa
 import Camera from '@renderer/components/Camera.vue'
 import Setting from '@renderer/components/Setting.vue'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
+import useDrag from '@renderer/composables/useDrag'
 const { config } = useConfigStore()
+//拖拽窗口
+const { drag } = useDrag()
+drag.run()
 
 const quit = () => window.api.quit()
 </script>
