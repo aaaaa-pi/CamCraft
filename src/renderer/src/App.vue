@@ -6,21 +6,21 @@
           v-if="config.page == 'camera'"
           theme="outline"
           size="24"
-          class="absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10"
+          class="absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10 hidden group-hover:block"
           @click="config.page = 'setting'"
         />
         <CameraFive
           v-if="config.page == 'setting'"
           theme="outline"
           size="24"
-          class="absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10"
+          class="absolute left-1/2 -translate-x-1/2 mt-3 text-white opacity-80 cursor-pointer z-10 hidden group-hover:block"
           @click="config.page = 'camera'"
         />
         <InnerShadowTopLeft
           v-if="config.page == 'camera'"
           theme="outline"
           size="24"
-          class="absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-white opacity-80 cursor-pointer z-10"
+          class="absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-white opacity-80 cursor-pointer z-10 hidden group-hover:block"
           @click="config.round = !config.round"
         />
       </section>
