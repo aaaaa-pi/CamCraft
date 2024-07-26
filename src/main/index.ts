@@ -26,7 +26,7 @@ function createWindow(): void {
   })
 
   mainWindow.setAspectRatio(1)
-  mainWindow.webContents.openDevTools()
+  if (is.dev) mainWindow.webContents.openDevTools()
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
