@@ -4,16 +4,12 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import "./ipcMain"
 import "./drag"
-
+import "./windowSize"
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
-    minHeight: 250,
-    minWidth: 250,
-    maxHeight: 500,
-    maxWidth: 500,
+    width: 500,
+    height: 280,
     show: false,
     alwaysOnTop: true,
     frame: false,
@@ -24,8 +20,6 @@ function createWindow(): void {
       sandbox: false
     }
   })
-
-  mainWindow.setAspectRatio(1)
   if (is.dev) mainWindow.webContents.openDevTools()
 
   mainWindow.on('ready-to-show', () => {

@@ -21,7 +21,7 @@
           theme="outline"
           size="24"
           class="absolute left-1/2 -translate-x-1/2 mt-3 bottom-3 text-white opacity-80 cursor-pointer z-10 hidden group-hover:block"
-          @click="config.round = !config.round"
+          @click="changeRound"
         />
       </section>
       <section>
@@ -44,6 +44,12 @@ const { drag } = useDrag()
 drag.run()
 
 const quit = () => window.api.quit()
+
+const changeRound = () => {
+  config.round = !config.round
+  if (config.round) window.api.setWindowSize({ aspectRatio: 1, width: 300, height: 300 })
+  else window.api.setWindowSize({ aspectRatio: 16 / 9, width: 500, height: 280 })
+}
 </script>
 
 <style lang="scss" scoped></style>

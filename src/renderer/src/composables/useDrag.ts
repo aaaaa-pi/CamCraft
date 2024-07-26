@@ -5,6 +5,7 @@ class Drag {
   constructor() {}
   public run() {
     window.addEventListener('DOMContentLoaded', () => {
+      this.body = document.querySelector('body')!
       this.body?.addEventListener('mousedown', this.mouseDown.bind(this))
     })
   }
