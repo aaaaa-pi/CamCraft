@@ -39,6 +39,8 @@ import Setting from '@renderer/components/Setting.vue'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import useDrag from '@renderer/composables/useDrag'
 const { config } = useConfigStore()
+import { windowSize } from '@renderer/stores/windowSize'
+const { size } = windowSize()
 //拖拽窗口
 const { drag } = useDrag()
 drag.run()
@@ -47,8 +49,15 @@ const quit = () => window.api.quit()
 
 const changeRound = () => {
   config.round = !config.round
-  if (config.round) window.api.setWindowSize({ aspectRatio: 1, width: 300, height: 300 })
-  else window.api.setWindowSize({ aspectRatio: 16 / 9, width: 500, height: 280 })
+  if (config.round) {
+    window.api.setWindowSize({ aspectRatio: 1, width: 300, height: 300 })
+    size.width = 300
+    size.height = 300
+  } else {
+    window.api.setWindowSize({ aspectRatio: 16 / 9, width: 500, height: 280 })
+    size.width = 500
+    size.height = 280
+  }
 }
 </script>
 

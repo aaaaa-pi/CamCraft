@@ -1,7 +1,12 @@
+import { windowSize } from '@renderer/stores/windowSize'
+import { storeToRefs } from 'pinia'
+
 class Drag {
   private body?: HTMLBodyElement
   private pageX = 0
   private pageY = 0
+  private windowSizeStore = windowSize()
+  private size = storeToRefs(this.windowSizeStore).size
   constructor() {}
   public run() {
     window.addEventListener('DOMContentLoaded', () => {
@@ -22,9 +27,13 @@ class Drag {
     })
   }
   private mouseEvent(e: MouseEvent) {
+    if (!this.size.value.width && !this.size.value.height) {
+      this.size.value.width = window.outerWidth
+      this.size.value.height = window.outerHeight
+    }
     const x = e.pageX - this.pageX
     const y = e.pageY - this.pageY
-    window.api.drag({ x, y })
+    window.api.drag({ x, y, width: this.size.value.width, height: this.size.value.height })
   }
 }
 
