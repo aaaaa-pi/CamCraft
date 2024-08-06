@@ -1,4 +1,4 @@
-# zipideo
+# CamCraft
 
 An Electron application with Vue and TypeScript
 
